@@ -43,4 +43,51 @@ Esto se puede ver aca, donde para guardar los items que se agregan a la orden us
         )
         self.order.append(product)
 ```
-3. Crear las interfaces de menu en una nueva clase (me parece mas logico que hacerlo en la clase orders), Cabe aclarar que esto solo crea el menu, todo lo demas de orders, no funcionaria porque toda la demas logica esta hecha con el menu con las instancias de clase MenuItem (Mucha de la logica se romperia, y tocaria cambiar demasiadas cosas, para eso me hubieran dicho antes v:) 
+3. Crear las interfaces de menu en una nueva clase (me parece mas logico que hacerlo en la clase orders), Cabe aclarar que esto solo crea el menu y las funciones que pide (ademas q con input), todo lo demas de orders, no funcionaria porque toda la demas logica esta hecha con el menu con las instancias de clase MenuItem (Mucha de la logica se romperia, y tocaria cambiar demasiadas cosas, para eso me hubieran dicho antes v:) 
+```python
+
+class MenuCreator():
+    def __init__(self):
+        self.menu={}
+    
+
+    def add_items_to_menu(self):
+        product_type = input("Cual tipo de producto (Beverage, Apetizer, Dessert, MainPlate): ")
+        name = input("Enter name: ")
+        price = float(input("Enter price: "))
+
+        if product_type == "Beverage":
+            item = Beverage(name, price)
+
+        elif product_type == "Apetizer":
+            item = Apetizer(name, price)
+
+        elif product_type == "Dessert":
+            item = Dessert(name, price)
+
+        elif product_type == "MainPlate":
+            item = MainPlate(name, price)
+
+        self.menu[name] = item.menu_to_dict()
+
+        return self.menu
+    
+    def update_menu_items(self):
+        name=input("Cual es el nombre del producto que quieres modificar")
+        if name in self.menu.keys():
+            price = float(input("Nuevo precio: "))
+            self.menu[name]["price"] = price
+            print("Actualizado")
+
+        else: 
+            print("No existe el elemento")
+
+    def delete_menu_items(self):
+        name=input("Cual item quieres remover")
+        if name in self.menu.keys():
+            p=self.menu.pop(name)
+            print (f"Se eleminio {p}")
+        
+        else:
+            "No existe el elemento "
+```
