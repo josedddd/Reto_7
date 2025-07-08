@@ -2,7 +2,7 @@
 
 Aqui describo como siempre todo: 
 
-1. Usar las fifo. Como se puede ver creo una clase que me maneje las ordenes, y uso una fila FIFO para realizar esto (uso la que ya esta en python)
+1. Usar las fifo. Como se puede ver creo una clase que me maneje ordenes simultaneas (como si fuese un restaurante de verdad), y uso una fila FIFO para realizar esto (uso la que ya esta en python)
 ```python
 
 class Manage_orders:
@@ -25,3 +25,22 @@ class Manage_orders:
         while not cola_fifo.empty():
             order_removida=cola_fifo.get()
             print ("Enviando orden a cocina ",order_removida.show_order())
+
+```
+2. Usar las named tuple en algun lado:
+Esto se puede ver aca, donde para guardar los items que se agregan a la orden uso este tipo de dato, el cual es muy conveniente, porque antes solo usaba una tupla normal (sin nombre"
+```python
+
+   def __init__(self, number):
+        self.number = number
+        self.order = []
+
+    def add_items(self, menu_item: MenuItem, quantity: int) -> list:
+        prod = namedtuple (f"Orden{self.number}",["prducto","cantidad"]) ##Aqui esta la named tuple, la uso para añadir los objetos al menu
+        product= prod( 
+            menu_item,
+            quantity        
+        )
+        self.order.append(product)
+```
+3. Crear las interfaces de menu:
