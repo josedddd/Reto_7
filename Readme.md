@@ -43,4 +43,4 @@ Esto se puede ver aca, donde para guardar los items que se agregan a la orden us
         )
         self.order.append(product)
 ```
-3. Crear las interfaces de menu:
+3. Crear las interfaces de menu en una nueva clase (me parece mas logico que hacerlo en la clase orders), Cabe aclarar que esto solo crea el menu, todo lo demas de orders, no funcionaria porque toda la demas logica esta hecha con el menu con las instancias de clase MenuItem (Mucha de la logica se romperia, y tocaria cambiar demasiadas cosas, para eso me hubieran dicho antes v:) 
