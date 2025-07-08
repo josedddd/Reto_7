@@ -28,7 +28,7 @@ class Manage_orders:
 
 ```
 2. Usar las named tuple en algun lado:
-Esto se puede ver aca, donde para guardar los items que se agregan a la orden uso este tipo de dato, el cual es muy conveniente, porque antes solo usaba una tupla normal (sin nombre"
+Esto se puede ver aca, donde para guardar los items que se agregan a la orden uso este tipo de dato, el cual es muy conveniente, porque antes solo usaba una tupla normal (sin nombre)
 ```python
 
    def __init__(self, number):
