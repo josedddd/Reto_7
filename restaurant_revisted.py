@@ -119,51 +119,7 @@ class Order:
 
         return total_bill
     
-    def create_new_menu(self):
-        self.menu={}
-
-    def add_items_to_menu(self):
-        product_type = input("Cual tipo de producto (Beverage, Apetizer, Dessert, MainPlate): ")
-
-        name = input("Enter name: ")
-        price = float(input("Enter price: "))
-
-        if product_type == "Beverage":
-            item = Beverage(name, price)
-
-        elif product_type == "Apetizer":
-            item = Apetizer(name, price)
-
-        elif product_type == "Dessert":
-            item = Dessert(name, price)
-
-        elif product_type == "MainPlate":
-            item = MainPlate(name, price)
-
-        self.menu[name] = item
-
-        return self.menu
-    
-    def update_menu_items(self):
-        name=input("Cual es el nombre del producto que quieres modificar")
-        price=input("cual es el nuevo precio")
-        if name in self.menu.keys():
-            price = float(input("Nuevo precio: "))
-            self.menu[name]["price"] = price
-            print("Actualizado")
-
-        else: 
-            print("No existe el elemento")
-
-    def delete_menu_items(self):
-        name=input("Cual item quieres remover")
-        if name in self.menu.keys():
-            p=self.menu.pop(name)
-            print (f"Se eleminio {p}")
-        
-        else:
-            "No existe el elemento "
-
+   
 class Manage_orders:
     def __init__(self):
         self.list_orders=[]
@@ -223,6 +179,52 @@ class Money_Payment(Payment):
         else:
             return "You don't have enough money :///"
             
+class MenuCreator():
+    def __init__(self):
+        self.menu={}
+    
+
+    def add_items_to_menu(self):
+        product_type = input("Cual tipo de producto (Beverage, Apetizer, Dessert, MainPlate): ")
+        name = input("Enter name: ")
+        price = float(input("Enter price: "))
+
+        if product_type == "Beverage":
+            item = Beverage(name, price)
+
+        elif product_type == "Apetizer":
+            item = Apetizer(name, price)
+
+        elif product_type == "Dessert":
+            item = Dessert(name, price)
+
+        elif product_type == "MainPlate":
+            item = MainPlate(name, price)
+
+        self.menu[name] = item.menu_to_dict()
+
+        return self.menu
+    
+    def update_menu_items(self):
+        name=input("Cual es el nombre del producto que quieres modificar")
+        if name in self.menu.keys():
+            price = float(input("Nuevo precio: "))
+            self.menu[name]["price"] = price
+            print("Actualizado")
+
+        else: 
+            print("No existe el elemento")
+
+    def delete_menu_items(self):
+        name=input("Cual item quieres remover")
+        if name in self.menu.keys():
+            p=self.menu.pop(name)
+            print (f"Se eleminio {p}")
+        
+        else:
+            "No existe el elemento "
+
+    
 # 🥤 Drinksn
 coke = Beverage("Coca-cola", 2.5)
 coke.set_size("medium")
@@ -308,4 +310,9 @@ Manage_orders1.add_list_orders(order2)
 Manage_orders1.add_list_orders(order3)
 Manage_orders1.manage_order()
 
+MenuCreator1=MenuCreator()
+MenuCreator1.add_items_to_menu()
+MenuCreator1.update_menu_items()
+MenuCreator1.delete_menu_items()
 
+print(MenuCreator1.menu)
