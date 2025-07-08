@@ -3,7 +3,8 @@
 Aqui describo como siempre todo: 
 
 1. Usar las fifo. Como se puede ver creo una clase que me maneje las ordenes, y uso una fila FIFO para realizar esto (uso la que ya esta en python)
-2. python
+```python
+
 class Manage_orders:
     def __init__(self):
         self.list_orders=[]
