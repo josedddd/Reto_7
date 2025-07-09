@@ -43,7 +43,7 @@ Esto se puede ver aca, donde para guardar los items que se agregan a la orden us
         )
         self.order.append(product)
 ```
-3. Crear las interfaces de menu en una nueva clase (me parece mas logico que hacerlo en la clase orders), Cabe aclarar que esto solo crea el menu y las funciones que pide (ademas q con input), todo lo demas de orders, no funcionaria porque toda la demas logica esta hecha con el menu con las instancias de clase MenuItem (Mucha de la logica se romperia, y tocaria cambiar demasiadas cosas, para eso me hubieran dicho antes v:) 
+3. Crear las interfaces de menu en una nueva clase (me parece mas logico que hacerlo en la clase orders), Cabe aclarar que esto solo crea el menu y las funciones que pide (ademas q con input), ademas convierte un objeto de la calse menuItem a un json. Todo lo demas de orders, como calculate price y eso, no funcionaria con este menu tipo Json, sino con los objetos hechos con las instancias de clase MenuItem (Mucha de la logica se romperia, y tocaria cambiar demasiadas cosas, para eso me hubieran dicho antes v:). Ademas como es json no pudo poner los objetos en los dicts ;(
 ```python
 
 class MenuCreator():
