@@ -11,7 +11,7 @@ class MenuItem:
     
     def menu_to_dict(self): ##Creado para el json 
         return{
-            "type":  self.__class__.__name__,
+            "type":  self.__class__.__name__, ##Esto es para que me dija el nombre de la clase en string, es mas util que el tipo type
             "price": self.price
         }
     
@@ -185,7 +185,6 @@ class MenuCreator():
     
 
     def add_items_to_menu(self, Menuitem:MenuItem):
-        
         self.menu[Menuitem.name] = Menuitem.menu_to_dict()
         return self.menu
     
@@ -274,10 +273,10 @@ brownie.set_flavour("Walnut")
 order_1 = Order(number=1)
 
 # Add items
-order_1.add_items(juice, 2)         # Juice (Drink)
-order_1.add_items(nuggets, 2)       # Nuggets (Appetizer)
-order_1.add_items(ice_cream, 2)     # Ice cream (Dessert)
-order_1.add_items(water, 2)         # Water (Drink)
+order_1.add_items(juice, 2)         
+order_1.add_items(nuggets, 2)       
+order_1.add_items(ice_cream, 2)     
+order_1.add_items(water, 2)         
 
 order2= Order(2)
 order2.add_items(ice_cream, 2)
