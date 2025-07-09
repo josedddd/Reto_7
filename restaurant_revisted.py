@@ -9,9 +9,9 @@ class MenuItem:
     def calculate_price(self, quantity: int) -> float:
         return self.price * quantity
     
-    def menu_to_dict(self):
+    def menu_to_dict(self): ##Creado para el json 
         return{
-            "name": self.name, 
+            "type":  self.__class__.__name__,
             "price": self.price
         }
     
@@ -130,7 +130,7 @@ class Manage_orders:
 
 
     def manage_order(self):
-        cola_fifo=Queue(maxsize=15)
+        cola_fifo=Queue(maxsize=15) ##Hay maximo 15
         for order in self.list_orders:
             cola_fifo.put(order)
         
@@ -184,25 +184,9 @@ class MenuCreator():
         self.menu={}
     
 
-    def add_items_to_menu(self):
-        product_type = input("Cual tipo de producto (Beverage, Apetizer, Dessert, MainPlate): ")
-        name = input("Enter name: ")
-        price = float(input("Enter price: "))
-
-        if product_type == "Beverage":
-            item = Beverage(name, price)
-
-        elif product_type == "Apetizer":
-            item = Apetizer(name, price)
-
-        elif product_type == "Dessert":
-            item = Dessert(name, price)
-
-        elif product_type == "MainPlate":
-            item = MainPlate(name, price)
-
-        self.menu[name] = item.menu_to_dict()
-
+    def add_items_to_menu(self, Menuitem:MenuItem):
+        
+        self.menu[Menuitem.name] = Menuitem.menu_to_dict()
         return self.menu
     
     def update_menu_items(self):
@@ -311,8 +295,11 @@ Manage_orders1.add_list_orders(order3)
 Manage_orders1.manage_order()
 
 MenuCreator1=MenuCreator()
-MenuCreator1.add_items_to_menu()
+MenuCreator1.add_items_to_menu(chocolate_cake)
+MenuCreator1.add_items_to_menu(iced_tea)
+MenuCreator1.add_items_to_menu(steak)
+MenuCreator1.add_items_to_menu(brownie)
+print(MenuCreator1.menu)
 MenuCreator1.update_menu_items()
 MenuCreator1.delete_menu_items()
-
 print(MenuCreator1.menu)
