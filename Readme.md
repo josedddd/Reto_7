@@ -52,7 +52,6 @@ class MenuCreator():
     
 
     def add_items_to_menu(self, Menuitem:MenuItem):
-        
         self.menu[Menuitem.name] = Menuitem.menu_to_dict()
         return self.menu
     
