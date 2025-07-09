@@ -51,25 +51,9 @@ class MenuCreator():
         self.menu={}
     
 
-    def add_items_to_menu(self):
-        product_type = input("Cual tipo de producto (Beverage, Apetizer, Dessert, MainPlate): ")
-        name = input("Enter name: ")
-        price = float(input("Enter price: "))
-
-        if product_type == "Beverage":
-            item = Beverage(name, price)
-
-        elif product_type == "Apetizer":
-            item = Apetizer(name, price)
-
-        elif product_type == "Dessert":
-            item = Dessert(name, price)
-
-        elif product_type == "MainPlate":
-            item = MainPlate(name, price)
-
-        self.menu[name] = item.menu_to_dict()
-
+    def add_items_to_menu(self, Menuitem:MenuItem):
+        
+        self.menu[Menuitem.name] = Menuitem.menu_to_dict()
         return self.menu
     
     def update_menu_items(self):
@@ -89,5 +73,5 @@ class MenuCreator():
             print (f"Se eleminio {p}")
         
         else:
-            "No existe el elemento "
+           print( "No existe el elemento ")
 ```
