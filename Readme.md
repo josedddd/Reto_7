@@ -2,7 +2,7 @@
 
 Aqui describo como siempre todo: 
 
-1. Usar las fifo. Como se puede ver creo una clase que me maneje ordenes simultaneas (como si fuese un restaurante de verdad), y uso una fila FIFO para realizar esto (uso la que ya esta en python)
+1. Usar las FIFO. Como se puede ver creo una clase que me maneje ordenes simultaneas (como si fuese un restaurante de verdad), y uso una fila FIFO para realizar esto (uso la que ya esta en python)
 ```python
 
 class Manage_orders:
