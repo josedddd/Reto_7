@@ -206,7 +206,7 @@ class MenuCreator():
             print (f"Se eleminio {p}")
         
         else:
-            "No existe el elemento "
+           print( "No existe el elemento ")
 
     
 # 🥤 Drinksn
